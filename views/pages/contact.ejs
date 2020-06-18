@@ -1,0 +1,34 @@
+<%- include ('../partials/header') %> 
+<div class="container">
+    <div style="text-align:center">
+      <h2>Contact </h2>
+      <p>You can contact me easily, just fill the form.</p>
+    </div>
+    <div>
+      <div style= "float: left; width: 50%; margin-top: 6px; padding: 20px;">
+        <form>
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" name="firstname" placeholder="Your name..">
+          <p></p>
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+          <p></p>
+          <label for="country">Country</label>
+          <select id="country" name="country">
+            <option value="turkey">Turkey</option>
+            <option value="canada">Canada</option>
+            <option value="usa">USA</option>
+          </select>
+          <p></p>
+          <label for="subject">Why are you reaching us?</label>
+          <p></p>
+          <textarea id="subject" name="subject" placeholder="Type your message here.." style="height:170px"></textarea>
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+    </div>
+  </div>
+  <div>
+      <p style= "padding-top: 50px;">Hello, my name is Dorukhan. I am a Computer Programmer student at Georgian College. I have knowledge about JavaScript frameworks, Swift, Flutter and Java.</p>
+  </div>
+<%- include('../partials/footer') %>
