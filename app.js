@@ -28,8 +28,31 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 
+//Setup our session
+const session = require('express-session');
+app.use(session({
+    secret: 'secrets here',
+    resave: true,
+    saveUninitialized: false
+}));
+
+//Setup flash notification
+const flash  = require('connect-flash');
+app.use(flash());
+app.use('/',(req,res,next) => {
+    //Setting default locals
+    res.locals.pageTitle = "Undefined";
+
+    //Passing along flash message
+    res.locals.flash = req.flash();
+    res.locals.formData = req.session.formData || {};
+    req.session.formData = {};
+    next();
+});
+
 //Our routes
 const routes = require('./routes.js');
+const { resolve } = require('path');
 app.use('/', routes);
 
 //Start our server
